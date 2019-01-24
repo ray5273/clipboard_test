@@ -14,7 +14,6 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
     private static final int ACTION_MANAGE_OVERLAY_PERMISSION_REQUEST_CODE = 1;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,20 +23,18 @@ public class MainActivity extends AppCompatActivity {
         bt_start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //checkPermission();
+                checkPermission();
                 startService(new Intent(MainActivity.this, Clipboard.class));
 
                 //startService(new Intent(MainActivity.this, AlwaysOnTopService.class));
             }
         });
-
         Button bt_stop = (Button) findViewById(R.id.btn2);
         bt_stop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 stopService(new Intent(MainActivity.this, MyService.class));
                 stopService(new Intent(MainActivity.this, Clipboard.class));
-
             }
         });
     }
